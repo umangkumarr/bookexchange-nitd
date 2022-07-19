@@ -1,0 +1,61 @@
+<nav class="navbar h-nav-resp">
+  <ul class="nav-list v-class-resp">
+    <div class="logo">
+      <img src="../img/icon.jpg">
+    </div>
+    <li><a href="/">Home</a></li>
+    <li><a>Total Number of books : {{count}}</a></li>
+    {{!-- <li><a href="/activities">Past Activities</a></li> --}}
+  </ul>
+  <div class="right-nav v-class-resp">
+    <button type="button" class="button"><a href="/logout">Logout</a></button>
+    <li></li>
+    <button type="button" class="button"><a href="/profile">Hi {{name}}</a></button>
+  </div>
+  <div class="burger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+</nav>
+<div class="card-container">
+   <div class = "card">
+      <div class = "card-image" style="background-image: url('bg2.jpg');"></div>
+      <div class = "card-text">
+        <!-- <span class = "date">4 days ago</span> -->
+        <a href="/exchange" style="color: black; text-decoration: none;"><h2>Exchange Book</h2></a>
+        <div style="border-bottom: 1px solid black;"></div>
+        <p>"You are not done with a book until you pass it to another reader.” - Donalyn Miller </p>
+      </div>
+      <div class = "card-stats"></div>
+  </div>
+  <br>
+  <div class = "card">
+      <div class = "card-image" style = "background-image: url(rent.jpg);"></div>
+      <div class = "card-text">
+        <a href="/rent" style="color: black; text-decoration: none;"><h2>Lend Book</h2></a>
+        <div style="border-bottom: 1px solid black;"></div>
+        <p>"Good friends lend books. Best friends return them in mint.. condition."</p>
+      </div>
+      <div class = "card-stats"></div>
+  </div>
+  <div class = "card">
+      <div class = "card-image" style = "background-image: url('buy.jpg');"></div>
+      <div class = "card-text">
+        <a href="/buy" style="color: black; text-decoration: none;"><h2>Buy Book</h2></a>
+        <div style="border-bottom: 1px solid black;"></div>
+        <p>"Ther is no friend as loyal as a book. Get one."</p>
+      </div>
+      <div class = "card-stats"></div>
+  </div>
+  <div class = "card">
+      <div class = "card-image" style = "background-image: url(sell.jpg);"></div>
+      <div class = "card-text">
+        <a href="/bookupload/S/A/A" style="color: black; text-decoration: none;"><h2>Sell Book</h2></a>
+        <div style="border-bottom: 1px solid black;"></div>
+        <p>"Help others find themselves."</p>
+      </div>
+      <div class = "card-stats"></div>
+  </div>
+</div>

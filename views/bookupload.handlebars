@@ -1,0 +1,136 @@
+<form action="/uploadbook/{{category.par}}/{{category.isbnn}}/{{category.owner}}" method="POST"  encType="multipart/form-data">
+  <div class="signup-container">
+    <div class="left-container">
+      <h1>
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-book-half"
+          viewBox="0 0 16 16">
+          <path
+            d = "M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
+        </svg>
+      </h1>
+      <!-- <div class="">
+        <img src="https://cdn.pixabay.com/photo/2016/03/09/09/14/books-1245690_1280.jpg"/>
+      </div> -->
+    </div>
+    <div class="right-container">
+      <header>
+        <h1>Hey! Thanks for adding your book into our database.</h1>
+        <div class="set">
+          <div class="books-name">
+            <label for="books-name">Title</label>
+            <input id="books-name" name="title" placeholder="Title of the book" type="text" required></input>
+          </div>
+          <div class="books-photo">
+            <label for="books-upload">Upload a photo</label>
+            <button id="books-upload">
+              <i class="fas fa-camera-retro"></i>
+              <input type="file" required name="sampleFile" accept="image/*" style="max-width: 200px;"/>
+            </button>
+          </div>
+        </div>
+        <div class="set">
+          <div class="books-name">
+            <label for="books-breed">Author</label>
+            <input id="books-breed" name="author" placeholder="Author of the book" required type="text"></input>
+          </div>
+          <div class="books-birthday">
+            <label for="books-birthday">Year</label>
+            <input id="books-birthday" name="year" required placeholder="Published year of the book"
+              type="number"></input>
+          </div>
+        </div>
+        <div class="set">
+          <div class="books-birthday">
+            <label for="books-birthday">ISBN</label>
+            <input id="books-birthday" name="isbn" required placeholder="13 digit ISBN of the book"
+              type="number"></input>
+          </div>
+          <div class="books-birthday">
+            <label for="books-birthday">Semester</label>
+            <input id="books-birthday" name="semester"  placeholder="Related semester of the book"
+              type="number"></input>
+          </div>
+        </div>
+        <div class="set">
+          <div class="books-birthday">
+            <label for="books-birthday">Edition</label>
+            <input id="books-birthday" name="edition" required placeholder="Editon of the book" type="number"></input>
+          </div>
+          <div class="books-birthday">
+            <label for="books-birthday">Language</label>
+            <input id="books-birthday" name="language" required placeholder="Language of the book" type="text"></input>
+          </div>
+        </div>
+        <div class="set">
+          <div class="books-birthday">
+            <label for="books-birthday">Your RollNo</label>
+            <input id="books-birthday" name="owner" required placeholder="Your Institute Enrollment number"
+              type="number"></input>
+          </div>
+          <div class="books-birthday">
+            <label for="books-birthday">Genre</label>
+            <input id="books-birthday" name="book_category" placeholder="Genre of the book" type="text"></input>
+          </div>
+        </div>
+        <div class="set">
+          <div class="books-birthday">
+            <label for="books-birthday">Publisher</label>
+            <input id="books-birthday" name="publisher" required placeholder="Publisher of the book"
+              type="text"></input>
+          </div>
+          <div class="books-birthday">
+            <label for="books-birthday">Highlight</label>
+            <input id="books-birthday" name="highlight" placeholder="Describe book in approx 10 words"
+              type="text"></input>
+          </div>
+        </div>
+        <div class="books-birthday">
+          <label for="books-birthday">Description</label>
+          <textarea id="books-birthday" name="description" placeholder="Brief description of the book" rows="5"
+            cols="60" type="text"></textarea>
+        </div>
+        {{#if category.E}}
+        <br>
+        <h style=>Book Demand</h><br>
+        <div class="set">
+          <div class="books-name">
+            <label for="books-name">Title</label>
+            <input id="books-name" required name="btitle" placeholder="Title of the book" type="text"></input>
+          </div>
+          <div class="books-name">
+            <label for="books-breed">Author</label>
+            <input id="books-breed" required name="bauthor" placeholder="Author of the book" type="text"></input>
+          </div>
+        </div>
+        {{/if}}
+        {{#if category.S}}
+        <br>
+        <h>Price Details</h><br>
+        <div class="set">
+          <div class="books-name">
+            <label for="books-name">Price</label>
+            <input id="books-name" required name="price" placeholder="Price of the book" type="number"></input>
+          </div>
+        </div>
+        {{/if}}
+        {{#if category.R}}
+        <br>
+        <h>Price Details</h><br>
+        <div class="set">
+          <div class="books-name">
+            <label for="books-name">Charges (/Mo)</label>
+            <input id="books-name" required name="charges" placeholder="Lend amount for 1 month" type="number"></input>
+          </div>
+        </div>
+        {{/if}}
+      </header>
+
+      <footer>
+        <div class="set">
+          <button type="reset" id="back" value="reset">Reset</button>
+          <button type="submit" id="next">Next</button>
+        </div>
+      </footer>
+    </div>
+  </div>
+</form>

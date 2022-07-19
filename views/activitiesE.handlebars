@@ -1,0 +1,96 @@
+<div class="conatainer_v" style="padding-top: 30px;">
+    <h2> Your Books </h2>
+</div>
+<br>
+<div class="choose">
+    <a href="#list-th"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+    <a href="#large-th"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+</div>
+<div id="list-th">
+    {{#if data.rows1}}
+    {{#each data.rows1}}
+    <div class="book read">
+        <div class="cover">
+            {{#if this.image}}
+            <img src="/img/{{this.ISBN}}.jpg" alt="">
+            {{else}}
+            <img src="/img/temp.png" alt="">
+            {{/if}}
+        </div>
+        <div class="description">
+            <p class="title">
+                <a href="/bookdetails/{{this.ISBN}}" style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
+                <br>
+                <span class="author">{{this.author}}</span>
+            </p>
+        </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <p>No books available.</p>
+    {{/if}}
+</div>
+<div class="conatainer_v" style="padding-top: 30px;">
+    <h2>Exchanged Books </h2>
+</div>
+<br>
+<div class="choose">
+    <a href="#list-th"><i class="fa fa-th-list" aria-hidden="true"></i></a>
+    <a href="#large-th"><i class="fa fa-th-large" aria-hidden="true"></i></a>
+</div>
+<div class="containerE">
+    <div id="list-th">
+        {{#if data.rows2}}
+        {{#each data.rows2}}
+        <div class="book read">
+            <div class="cover">
+                {{#if this.image}}
+                <img src="/img/{{this.isbn1}}.jpg" alt="">
+                {{else}}
+                <img src="/img/temp.png" alt="">
+                {{/if}}
+            </div>
+            <div class="description">
+                <p class="title">
+                    <a href="/bookdetails/{{this.isbn1}}" style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
+                    <br>
+                    <span class="author">{{this.author}}</span>
+                </p>
+            </div>
+        </div>
+        <div class="book1">
+            <div class="icon-container" style="margin-top: 50%;
+    margin-left: 22%;">
+                <div class="icon-arrow">
+
+                </div>
+                <div class="icon-arrow1">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="book read">
+
+            <div class="cover">
+                {{#if this.image2}}
+                <img src="/img/{{this.isbn2}}.jpg" alt="">
+                {{else}}
+                <img src="/img/temp.png" alt="">
+                {{/if}}
+            </div>
+            <div class="description">
+                <p class="title">
+                    <a href="/bookdetails/{{this.isbn2}}"
+                        style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title2}}</a>
+                    <br>
+                    <span class="author">{{this.author2}}</span>
+                </p>
+            </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <p>No books available.</p>
+        {{/if}}
+    </div>
+</div>

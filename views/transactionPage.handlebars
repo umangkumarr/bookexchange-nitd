@@ -1,0 +1,41 @@
+<div class="card" style="max-width: 42%;">
+    <h1>Payment details</h1>
+    <div class="container-details" style="background: rgba(76, 175, 80, 0.9);
+    padding-left: 2%;
+    max-width: 82%;
+    display: block;
+    margin-left: 10%;
+    border: 2px solid black;
+    border-radius: 21px;
+    color: mediumblue;">
+        <div class="container">
+            <h2>Transaction Id</h2>
+            <h2>: {{data.id}}</h2>
+        </div>
+        <div class="container">
+            <h2>Sender Name</h2>
+            <h2>: {{data.s_name}}</h2>
+        </div>
+        <div class="container">
+            <h2>Roll Number</h2>
+            <h2>: {{data.rollno}}</h2>
+        </div>
+        <div class="container">
+            <h2>Receiver Name</h1>
+                <h2>: {{data.r_name}}</h2>
+        </div>
+        <div class="container">
+            <h2>Amount</h2>
+            <h2>: {{data.charge}}</h2>
+        </div>
+        <div class="container">
+            <h2>ISBN</h2>
+            <h2>: {{data.isbn}}</h2>
+        </div>
+    </div>
+    <a href="/transaction/{{data.char}}">
+        <div class="container_1" style="display:flex">
+            <div class="button">Continue -></div>
+            <div class="button" onclick="window.print()">print</div>
+        </div>
+</div>

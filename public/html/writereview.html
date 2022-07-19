@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>write review</title>
+    <script src="../js/star.js"></script>
+    <link rel="stylesheet" href="../css/writereview.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Review</h1>
+        <hr style="height: 1px; border-width: 0px; color: black; background-color: #38353594; margin-left: 0;
+         width: 60vw;">
+        <h2 style="margin-top: 1.5rem;">Overall rating</h2>
+        <div class="overallrating">
+            <div class="starRatingContainer">
+                <div class="ratestars"></div>
+            </div>
+            <div id="rating1" class="ratingHolder">5 stars</div>
+        </div>
+        <!-- <h2 style="margin-top: 1.5rem;">Rate features</h2> 
+        <h3 id= "hcond" class="inblock" style="margin: 0 0;">condition</h3> -->
+        <!-- <div class="condition inblock">
+            <div class="starRatingContainer">
+                <div class="ratecondition"> </div>
+            </div>
+        </div>
+        <br>
+        <h3 class="inblock">value for money</h3>
+        <div class="valueformoney inblock">
+            <div class="starRatingContainer">
+                <div class="ratevalueformoney"> </div>
+            </div>
+        </div> -->
+        <!-- <div class="review-photo">
+            Add a photo
+        </div> -->
+        <h2>write your review</h2>
+        <form id="reviewform" action="/feedback" method="post">
+            <input type="number" id="rating" name="rating" min="1" max="5">
+            <textarea name="description" id="description" cols="30" rows="10"
+                placeholder="write your review here...."></textarea> <br>
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            var overallrating, condition, valueformoney;
+            var properties1 = [
+                { "rating": "5", "maxRating": "5", "minRating": "1", "readOnly": "no", "starImage": "../img/star.png", "emptyStarImage": "../img/starbackground.png", "starSize": "32", "step": "1" },
+                // { "rating": "0", "maxRating": "5", "minRating": "0", "readOnly": "no", "starImage": "./public/images/star.png", "emptyStarImage": "./public/images/starbackground.png", "starSize": "16", "step": "1" },
+                // { "rating": "0", "maxRating": "5", "minRating": "0", "readOnly": "no", "starImage": "./public/images/star.png", "emptyStarImage": "./public/images/starbackground.png", "starSize": "16", "step": "1" }
+            ];
+
+            rateSystem("ratestars", properties1, function(rating, ratingTargetElement) {
+                ratingTargetElement.parentElement.parentElement.getElementsByClassName("ratingHolder")[0].innerHTML = Math.trunc(rating) + " stars";
+                overallrating = Math.trunc(rating);
+                // console.log(overallrating);
+                rating = document.getElementById('rating');
+                rating.setAttribute("value", overallrating);
+            });
+            // rateSystem("ratecondition", [properties1[1]], function(rating, ratingTargetElement) {
+            //     condition = Math.trunc(rating);
+            //     console.log(condition);
+            // });
+            // rateSystem("ratevalueformoney", [properties1[2]], function(rating, ratingTargetElement) {
+            //    valueformoney = Math.trunc(rating);
+            //    console.log(valueformoney);
+            // });
+        </script>
+    </div>
+</body>
+
+</html>
