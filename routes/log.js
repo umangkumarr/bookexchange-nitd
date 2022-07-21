@@ -34,6 +34,7 @@ router4.get("/exchange_log/:owner", async function (req, res) {
         });
     })
 });
+
 //query for displaying the rent log of the users
 router4.get("/rent_log/:owner", async function (req, res) {
     owner = req.params.owner;
@@ -52,8 +53,9 @@ router4.get("/buy_log/:owner", async function (req, res) {
     owner = req.params.owner;
     connection.query("select * from books where category = 'S' and owner = ?", [owner], async function (err, rows1, fields) {
         if (!err) {
-            connection.query("select T.isbn, T.rollno, T.owner, B.title, B.author, B.image from (select * from buybook where rollno = ? union select * from buybook where owner = ?) as T join books B on B.isbn = T.isbn;", [owner, owner], async function (err, rows2, field) {
+            connection.query("select T.isbn, T.rollno, T.owner, B.title, B.author, B.image, B.imagelink from (select * from buybook where rollno = ? union select * from buybook where owner = ?) as T join books B on B.isbn = T.isbn;", [owner, owner], async function (err, rows2, field) {
                 data = { rows1, rows2 };
+                console.log(data);
                 res.render("activities", { data: data, category_2: "Purchased Books", category_1: "Your books for sell", layout: "activitiess" });
             })
         }

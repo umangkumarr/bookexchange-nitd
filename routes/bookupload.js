@@ -43,28 +43,12 @@ router2.post("/uploadbook/:C/:isbnn/:owner", encoder, (req, res) => {
     publisher = req.body.publisher;
     highlight = req.body.highlight;
     description = req.body.description;
-    let sampleFile;
-    let uploadPath;
-
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
+    let imagelink = req.body.imagelink
+    
     image = 1;
-    console.log(sampleFile);
-
-    // name of the input is sampleFile
-    sampleFile = req.files.sampleFile;
-    uploadPath = __dirname + '/../public/img/' + String(isbn) + ".jpg";
-
-    // Use mv() to place file on the server
-    console.log(req.session.Username);
-    sampleFile.mv(uploadPath, function (err) {
-        if (err) return res.status(500).send(err);
-        console.log(req.session.Username);
-    });
 
     if (request == 'R') {
-        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category], (error, rows, fields) => {
+        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category, imagelink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category, imagelink], (error, rows, fields) => {
             if (error) {
                 console.log(error);
                 res.redirect("/bookupload/R/?/?", [isbn2, owne2]);
@@ -80,7 +64,7 @@ router2.post("/uploadbook/:C/:isbnn/:owner", encoder, (req, res) => {
             }
         });
     } else if (request == 'E') {
-        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category], (error, rows, fields) => {
+        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category, imagelink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category, imagelink], (error, rows, fields) => {
             if (error) {
                 console.log(error);
                 res.redirect("/bookupload/E/?/?", [isbn2, owner2]);
@@ -97,7 +81,7 @@ router2.post("/uploadbook/:C/:isbnn/:owner", encoder, (req, res) => {
             }
         });
     } else if (request == 'S') {
-        connection.query("insert into books (ISBN,image, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [isbn, image, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category], (error, rows, fields) => {
+        connection.query("insert into books (ISBN,image, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category, imagelink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?, ?)", [isbn, image, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category, imagelink], (error, rows, fields) => {
             if (error) {
                 res.send(error);
             } else {
@@ -113,7 +97,7 @@ router2.post("/uploadbook/:C/:isbnn/:owner", encoder, (req, res) => {
         });
     } else if (request == 'ED') {
         console.log(req.session.Username);
-        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category], (error, rows, fields) => {
+        connection.query("insert into books (image, ISBN, title, author, year, edition, description, rating, category, owner, highlight, publisher, language, book_category, imagelink) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", [image, isbn, title, author, year, edition, description, 1, request, owner, highlight, publisher, language, book_category, imagelink], (error, rows, fields) => {
             if (error) {
                 console.log(error);
                 res.redirect("/bookupload/R/?/?", [isbn2, owner2]);
@@ -122,7 +106,7 @@ router2.post("/uploadbook/:C/:isbnn/:owner", encoder, (req, res) => {
                     if (error) {
                         console.log(error);
                     } else {
-                        req.session.ex=isbn;
+                        req.session.ex = isbn;
                         connection.query("update books set category = 'ED' where isbn = ?", [isbn2], (error, rows, fields) => {
                             if (error) {
                                 console.log(error);

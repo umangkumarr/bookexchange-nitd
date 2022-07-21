@@ -49,6 +49,7 @@ CREATE TABLE `books` (
     `language` char(200) DEFAULT NULL,
     `book_category` varchar(200) DEFAULT NULL,
     `t_feedback` int(11) NOT NULL DEFAULT '1',
+    `imagelink` varchar(512) NOT NULL,
     PRIMARY KEY (`ISBN`)
 );
 CREATE TABLE `demand` (

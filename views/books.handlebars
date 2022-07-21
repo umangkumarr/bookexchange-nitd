@@ -3,14 +3,15 @@
 <div class="book read">
     <div class="cover">
         {{#if this.image}}
-        <img src="img/{{this.ISBN}}.jpg" alt="">
+        <img src="{{this.imagelink}}" alt="">
         {{else}}
         <img src="img/temp.png" alt="">
         {{/if}}
     </div>
     <div class="description">
         <p>
-            <a class="title" href="/bookdetails/{{this.ISBN}}" style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
+            <a class="title" href="/bookdetails/{{this.ISBN}}"
+                style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
             <br>
             <span class="author">{{this.author}}</span>
         </p>

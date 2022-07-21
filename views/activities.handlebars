@@ -12,14 +12,15 @@
     <div class="book read">
         <div class="cover">
             {{#if this.image}}
-            <img src="/img/{{this.ISBN}}.jpg" alt="">
+            <img src="{{this.imagelink}}" alt="">
             {{else}}
             <img src="/img/temp.png" alt="">
             {{/if}}
         </div>
         <div class="description">
             <p class="title">
-                <a href="/bookdetails/{{this.ISBN}}" style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
+                <a href="/bookdetails/{{this.ISBN}}"
+                    style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
                 <br>
                 <span class="author">{{this.author}}</span>
             </p>
@@ -44,14 +45,15 @@
     <div class="book read">
         <div class="cover">
             {{#if this.image}}
-            <img src="/img/{{this.isbn}}.jpg" alt="">
+            <img src="{{this.imagelink}}" alt="">
             {{else}}
             <img src="/img/temp.png" alt="">
             {{/if}}
         </div>
         <div class="description">
             <p class="title">
-                <a href="/bookdetails/{{this.isbn}}" style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
+                <a href="/bookdetails/{{this.isbn}}"
+                    style="float:left; overflow:hidden; white-space:nowrap;color:black;text-decoration:none;max-width:190px">{{this.title}}</a>
                 <br>
                 <span class="author">{{this.author}}</span>
             </p>

@@ -22,18 +22,20 @@
                                             class="lightbox details-book-cover" data-book_id="5206637"
                                             data-isbn="9780735211292" itemprop="image">
                                             <div class="z-book-cover covered">
-                                                <img src="/img/{{this.ISBN}}.jpg" alt="{{this.title}}">
+                                                <img src="{{this.imagelink}}" alt="{{this.title}}">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-9">
-                                    <h1 class = "text-capitalize" itemprop="name" style="color: #000; line-height: 140%;">
+                                    <h1 class="text-capitalize" itemprop="name" style="color: #000; line-height: 140%;">
                                         {{this.title}} </h1>
 
-                                    <i><a itemprop="author" class="color1 text-capitalize" title="Find all the author's books" style="text-decoration: none;"
-                                            href="">{{this.author}}</a> | <a style="text-decoration: none;" href="" alt = "Book owner">{{this.owner}}</a></i>
+                                    <i><a itemprop="author" class="color1 text-capitalize"
+                                            title="Find all the author's books" style="text-decoration: none;"
+                                            href="">{{this.author}}</a> | <a style="text-decoration: none;" href=""
+                                            alt="Book owner">{{this.owner}}</a></i>
 
                                     <div class="book-rating-detail">
                                         <div class="book-rating " data-original-title="" title="">
@@ -64,7 +66,9 @@
                                             {{#if this.book_category}}
                                             <div class="bookProperty property_categories">
                                                 <div class="property_label">Categories:</div>
-                                                <div class="property_value text-capitalize"><a href="" style="text-decoration: none; color:black">{{this.book_category}}</a></div>
+                                                <div class="property_value text-capitalize"><a href=""
+                                                        style="text-decoration: none; color:black">{{this.book_category}}</a>
+                                                </div>
                                             </div>
                                             {{/if}}
                                             <div class="bookProperty property_year">
@@ -101,10 +105,11 @@
                                             {{/if}}
                                             {{#if this.cat.E}}
                                         </div>
-                                            <div>
-                                                <br>
-                                                <div style="color: black; font-size: 15pt; display: block; property_label">Demanded Book:</div>
-                                            </div>
+                                        <div>
+                                            <br>
+                                            <div style="color: black; font-size: 15pt; display: block; property_label">
+                                                Demanded Book:</div>
+                                        </div>
                                         <div class="bookDetailsBox">
                                             <div class="bookProperty property_isbn 13">
                                                 <div class="property_label">Book:</div>
@@ -115,53 +120,54 @@
                                                 <div class="property_value ">{{this.D_Author}}</div>
                                             </div>
                                         </div>
-                                            {{/if}}
-                                            {{#if this.cat.S}}
-                                            <div class="bookProperty property_isbn 13">
-                                                <div class="property_label"><strong>Price:</strong></div>
-                                                <div class="property_value ">{{this.price}} rs</div>
-                                            </div>
-                                            {{/if}}
-                                            {{#if this.cat.R}}
-                                            <div class="bookProperty property_isbn 13">
-                                                <div class="property_label">Charge:</div>
-                                                <div class="property_value ">{{this.cost}} rs/Mo</div>
-                                            </div>
-                                            {{/if}}
+                                        {{/if}}
+                                        {{#if this.cat.S}}
+                                        <div class="bookProperty property_isbn 13">
+                                            <div class="property_label"><strong>Price:</strong></div>
+                                            <div class="property_value ">{{this.price}} rs</div>
+                                        </div>
+                                        {{/if}}
+                                        {{#if this.cat.R}}
+                                        <div class="bookProperty property_isbn 13">
+                                            <div class="property_label">Charge:</div>
+                                            <div class="property_value ">{{this.cost}} rs/Mo</div>
+                                        </div>
+                                        {{/if}}
 
-                                            <div style="display: none;" class="bookProperty property_user_tags">
-                                                <div class="property_label">Your tags:</div>
-                                                <div class="property_value "></div>
-                                            </div>
+                                        <div style="display: none;" class="bookProperty property_user_tags">
+                                            <div class="property_label">Your tags:</div>
+                                            <div class="property_value "></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div style="margin-top: 30px; margin-bottom: 15px;">
-                                <div class="details-buttons-container pull-left">
-                                    <div class="book-details-button">
-
-                                        <div class="btn-group">
-                                            {{#if this.dikhao}}
-                                            <a class="btn btn-primary dlButton addDownloadedBook"
-                                                href="/action/{{this.char}}/{{this.ISBN}}/{{this.owner}}" target="" rel="nofollow">
-                                                <span class="" aria-hidden="true"></span>
-                                                {{!-- Exchange Book   | --}}
-                                                {{this.category}}
-                                            </a>
-                                            {{/if}}
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pull-right">
-                            </div>
-                            <div style="clear: both;"></div>
                         </div>
+
+                        <div style="margin-top: 30px; margin-bottom: 15px;">
+                            <div class="details-buttons-container pull-left">
+                                <div class="book-details-button">
+
+                                    <div class="btn-group">
+                                        {{#if this.dikhao}}
+                                        <a class="btn btn-primary dlButton addDownloadedBook"
+                                            href="/action/{{this.char}}/{{this.ISBN}}/{{this.owner}}" target=""
+                                            rel="nofollow">
+                                            <span class="" aria-hidden="true"></span>
+                                            {{!-- Exchange Book | --}}
+                                            {{this.category}}
+                                        </a>
+                                        {{/if}}
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                        </div>
+                        <div style="clear: both;"></div>
                     </div>
+                </div>
                 </div>
                 </div>
                 </div>
