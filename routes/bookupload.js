@@ -6,7 +6,7 @@ const path = require("path");
 const fileupload = require('express-fileupload');
 
 const bodyParser = require("body-parser");
-const encoder = bodyParser.urlencoded();
+const encoder = bodyParser.urlencoded({extended:true});
 
 express().use(express.static(path.join(__dirname, "../public")))
 express().use(fileupload());

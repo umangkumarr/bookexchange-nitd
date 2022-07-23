@@ -7,7 +7,8 @@ const dbService = require('./dbservices');
 const router1 = express.Router();
 const bodyParser = require("body-parser");//for reading form data
 const mysqlConnection = require("../connection");
-const encoder = bodyParser.urlencoded();
+// const encoder = bodyParser.urlencoded();
+const encoder = bodyParser.urlencoded({extended:true});
 express().use(express.static(path.join(__dirname, "../public")));
 
 var sessionUsername, category, searchValue, emailPass;
@@ -58,7 +59,12 @@ router1.post("/login", encoder, async function (req, res) {
     connection.query("select password,roll_no, fname, lname from student where username = ? ", [username], async function (error, results, fields) {
         results = JSON.parse(JSON.stringify(results))
         // console.log(results[0].password);
-        if (await bcrypt.compare(password, results[0].password)) {
+        console.log(results);
+        if(results[0]==undefined)
+        {
+            res.redirect("/loginunsuccess");
+        }
+        else if (await bcrypt.compare(password, results[0].password)) {
             // console.log(results)
             console.log("Login successful");
             req.session.Username = username;
@@ -89,6 +95,7 @@ router1.post("/forget_password", encoder, async function (req, res) {
         {
             res.render("")
         }
+        
         results = JSON.parse(JSON.stringify(results))
         req.session.username = req.body.username;
         // console.log(results[0].password);

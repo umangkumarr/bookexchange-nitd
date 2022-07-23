@@ -3,7 +3,8 @@ const path = require("path")
 const router3 = express.Router();
 const crypto = require("crypto");
 const bodyParser = require("body-parser");
-const encoder = bodyParser.urlencoded();
+const encoder = bodyParser.urlencoded({extended:true});
+// const encoder = bodyParser.urlencoded();
 const connection = require("../connection");
 
 express().use(express.static(path.join(__dirname, "../public")))

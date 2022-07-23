@@ -2,9 +2,9 @@ const mysql = require("mysql");
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");//for reading form data
-const encoder = bodyParser.urlencoded();
+// const encoder = bodyParser.urlencoded();
 let instance = null;
-
+const encoder = bodyParser.urlencoded({extended:true});
 var connection = require("../connection");
 const app = express();
 /*this file we are creating so that we pass all data to javascript file 

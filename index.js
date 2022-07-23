@@ -1,6 +1,6 @@
 const express = require('express')
 const exphbs = require("express-handlebars")
-const path  = require("path")
+const path = require("path")
 const fileUpload = require('express-fileupload');
 const app = express()
 const port = process.env.PORT || 3030;
@@ -11,8 +11,14 @@ app.set('view engine', 'handlebars');// trust first proxy
 // app.set('trust proxy', 1)
 app.use(session({
   secret: 'gs*J^v&k#B3tRHrz',
-  resave: false,
+  resave: true,
   saveUninitialized: true,
+  cookie: {
+
+    // Session expires after 1 min of inactivity.
+    maxAge:1000*60*60,
+    sameSite:true
+  }
 }))
 app.use(fileUpload());
 
