@@ -44,7 +44,7 @@ CREATE TABLE `books` (
     `image` varchar(150) DEFAULT NULL,
     `rating` decimal(4, 1) NOT NULL,
     `owner` int(11) NOT NULL,
-    `highlight` varchar(200) DEFAULT NULL,
+    `highlight` varchar(1000) DEFAULT NULL,
     `publisher` varchar(200) DEFAULT NULL,
     `language` char(200) DEFAULT NULL,
     `book_category` varchar(200) DEFAULT NULL,
@@ -79,17 +79,17 @@ CREATE TABLE `buybook` (
     `owner` bigint(20) NOT NULL
 );
 CREATE TABLE `rating` (
-    `roll_no` int(11) NOT NULL AUTO_INCREMENT,
+    `roll_no` bigint(20) NOT NULL AUTO_INCREMENT,
     `STARS` tinyint(4) DEFAULT NULL,
     `DESCRIPTION` varchar(1000) DEFAULT NULL,
-    `ISBN` int(11) NOT NULL,
+    `ISBN` bigint(20) NOT NULL,
     `USERNAME` varchar(50) NOT NULL,
     PRIMARY KEY (`roll_no`)
 );
 CREATE TABLE `sell` (
     `ISBN` bigint(20) NOT NULL,
     `owner` bigint(20) NOT NULL,
-    `price` int(11) NOT NULL,
+    `price` bigint(20) NOT NULL,
     PRIMARY KEY (`ISBN`)
 );
 CREATE TABLE `rent` (
